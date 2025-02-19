@@ -1,5 +1,5 @@
 import { createElement, Component } from 'react';
-import { findDOMNode } from 'react-dom';
+import ReactDOM from 'react-dom';
 import * as DOMHelpers from './dom-helpers';
 import { testPassiveEventSupport } from './detect-passive-events';
 import uid from './uid';
@@ -99,7 +99,11 @@ export default function onClickOutsideHOC(WrappedComponent, config) {
         return instance.setClickOutsideRef();
       }
 
-      return findDOMNode(instance);
+      console.log('ReactDOM', ReactDOM);
+
+      return ReactDOM.findDOMNode
+        ? ReactDOM.findDOMNode(instance)
+        : ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE.findDOMNode(instance);
     };
 
     /**
@@ -164,7 +168,7 @@ export default function onClickOutsideHOC(WrappedComponent, config) {
 
       handlersMap[this._uid] = event => {
         if (this.componentNode === null) return;
-        
+
         if (this.initTimeStamp > event.timeStamp) return;
 
         if (this.props.preventDefault) {

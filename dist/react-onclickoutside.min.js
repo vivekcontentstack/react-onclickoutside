@@ -1,4 +1,4 @@
-(function(g,f){typeof exports==='object'&&typeof module!=='undefined'?f(exports,require('react'),require('react-dom')):typeof define==='function'&&define.amd?define(['exports','react','react-dom'],f):(g=typeof globalThis!=='undefined'?globalThis:g||self,f(g.onClickOutside={},g.React,g.ReactDOM));}(this,(function(exports, react, reactDom){'use strict';function _inheritsLoose(subClass, superClass) {
+(function(g,f){typeof exports==='object'&&typeof module!=='undefined'?f(exports,require('react'),require('react-dom')):typeof define==='function'&&define.amd?define(['exports','react','react-dom'],f):(g=typeof globalThis!=='undefined'?globalThis:g||self,f(g.onClickOutside={},g.React,g.ReactDOM));}(this,(function(exports, react, reactDom){'use strict';function _interopDefaultLegacy(e){return e&&typeof e==='object'&&'default'in e?e:{'default':e}}var reactDom__default=/*#__PURE__*/_interopDefaultLegacy(reactDom);function _inheritsLoose(subClass, superClass) {
   subClass.prototype = Object.create(superClass.prototype);
   subClass.prototype.constructor = subClass;
 
@@ -190,7 +190,7 @@ function onClickOutsideHOC(WrappedComponent, config) {
           return instance.setClickOutsideRef();
         }
 
-        return reactDom.findDOMNode(instance);
+        return reactDom__default['default'].findDOMNode ? reactDom__default['default'].findDOMNode(instance) : reactDom__default['default'].__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE.findDOMNode(instance);
       };
 
       _this.enableOnClickOutside = function () {
