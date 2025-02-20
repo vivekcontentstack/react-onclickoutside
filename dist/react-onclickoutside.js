@@ -190,7 +190,6 @@ function onClickOutsideHOC(WrappedComponent, config) {
           return instance.setClickOutsideRef();
         }
 
-        console.log('ReactDOM', ReactDOM__default['default']);
         return ReactDOM__default['default'].findDOMNode ? ReactDOM__default['default'].findDOMNode(instance) : ReactDOM__default['default'].__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE.findDOMNode(instance);
       };
 
